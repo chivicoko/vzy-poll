@@ -23,8 +23,8 @@
       </div>
 
       <div class="py-4 flex items-center gap-1 md:gap-4 w-full">
-        <button @click="$reset" class="rounded-md border border-purple-700 hover:border-transparent bg-transparent hover:bg-purple-700 text-purple-900 hover:text-white flex-1 px-6 py-2 cursor-pointer">Reset</button>
-        <button @click="toggleVoteForm" :disabled="isVoteFormOpen === true" :class="`${isVoteFormOpen ? 'cursor-not-allowed opacity-50 grayscale-50' : 'cursor-pointer opacity-100 grayscale-0'} rounded-md bg-purple-600 hover:bg-purple-700 text-white flex-1 border whitespace-nowrap px-2 py-2`">Add vote option</button>
+        <button @click="$reset" class="rounded-md border border-blue-700 hover:border-transparent bg-transparent hover:bg-blue-700 text-blue-900 hover:text-white flex-1 px-6 py-2 cursor-pointer">Reset</button>
+        <button @click="toggleVoteForm" :disabled="isVoteFormOpen === true" :class="`${isVoteFormOpen ? 'cursor-not-allowed opacity-50 grayscale-50' : 'cursor-pointer opacity-100 grayscale-0'} rounded-md bg-blue-600 hover:bg-blue-700 text-white flex-1 border whitespace-nowrap px-2 py-2`">Add vote option</button>
       </div>
     </div>
 
