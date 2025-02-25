@@ -15,7 +15,7 @@ export const useVoterStore = defineStore('voter', () => {
 
   const totalVotes = computed(() => voteOptions.value.reduce((total, option) => total + option.count, 0));
 
-  function handleVote(id: number) {
+  const handleVote = (id: number) => {
     const voteOption = voteOptions.value.find(voteItem => voteItem.id === id);
     
     if (voteOption) {
@@ -30,7 +30,7 @@ export const useVoterStore = defineStore('voter', () => {
     // console.log(voteOptions.value);
   }
   
-  function handleSubmit() {
+  const handleSubmit = () => {
     if (voteOption.value.length > 0) {
       const newVoteOptionObj = voteOptions.value.find(vote => vote.title === voteOption.value);
 
@@ -56,7 +56,7 @@ export const useVoterStore = defineStore('voter', () => {
     voteOptions.value = voteOptions.value.filter(vote => vote.id !== id);
   }
 
-  function $reset() {
+  const $reset = () => {
     voteOptions.value = [
       {id: 1, title: 'Option 1', count: 0, percentageValue: 0},
       {id: 2, title: 'Option 2', count: 0, percentageValue: 0},
