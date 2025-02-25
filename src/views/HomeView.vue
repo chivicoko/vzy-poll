@@ -6,7 +6,7 @@
 
   const voteStore = useVoterStore();
 
-  const { totalVotes, isVoteFormOpen, oneTime } = storeToRefs(voteStore);
+  const { voteOptions, totalVotes, isVoteFormOpen, oneTime } = storeToRefs(voteStore);
   const { toggleOptionClickability, toggleVoteForm, $reset } = voteStore;
 </script>
 
@@ -27,8 +27,12 @@
           </button>
         </div>
       </div>
-      <div class="w-full flex flex-col gap-5">
+      <div v-if="voteOptions.length > 0" class="w-full flex flex-col gap-5">
         <VoteOptionBar />
+      </div>
+      
+      <div v-else class="w-full">
+        <p class="w-full text-center">No vote options yet!</p>
       </div>
 
       <div class="pt-8 flex items-center gap-1 md:gap-4 w-full">
