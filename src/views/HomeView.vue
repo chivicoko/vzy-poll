@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div v-if="voteOptions.length > 0" class="w-full flex flex-col gap-5 border">
+      <div v-if="voteOptions.length > 0" class="w-full flex flex-col gap-5">
         <VoteOptionBar />
       </div>
       
