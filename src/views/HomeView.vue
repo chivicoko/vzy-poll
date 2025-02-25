@@ -15,11 +15,11 @@
     
     <div class="h-full w-80 md:w-96 p-3">
       <div class="py-4 flex flex-col items-center justify-center">
-        <h1 class="text-center text-3xl font-bold bg-gradient-to-r from-[#475ac7] via-[#3a71b5] to-[#7848a9] bg-clip-text text-transparent">
-          The Poll
+        <h1 class="pb-2 text-center text-3xl font-bold bg-gradient-to-r from-[#475ac7] via-[#3a71b5] to-[#7848a9] bg-clip-text text-transparent">
+          The VZY Poll
         </h1>
         <p>Total Number of Votes: <strong>{{ totalVotes }}</strong></p>
-        <div class="flex items-center gap-6 border-y py-1 w-[70%]">
+        <div class="flex items-center justify-center gap-6 border-y py-1 w-[70%]">
           <p>One Time Vote? </p>
           <button @click="toggleOptionClickability" :class="`${!oneTime ? 'opacity-50 grayscale-50' : 'opacity-100 grayscale-0'} flex items-center gap-2 cursor-pointer bg-purple-600 py-[4px] px-1 rounded-full`">
             <span :class="`${oneTime ? 'bg-white text-purple-700' : 'bg-transparent text-white'} rounded-full p-1 size-5`"></span>
@@ -27,7 +27,8 @@
           </button>
         </div>
       </div>
-      <div v-if="voteOptions.length > 0" class="w-full flex flex-col gap-5">
+
+      <div v-if="voteOptions.length > 0" class="w-full flex flex-col gap-5 border">
         <VoteOptionBar />
       </div>
       

@@ -21,8 +21,6 @@ export const useVoterStore = defineStore('voter', () => {
     
     if (voteOption) {
       if (oneTime.value && voteOption.count === 1) {
-        // console.log(voteOption.count);
-        // console.log(oneTime.value);
         return;
       }
       
@@ -36,7 +34,7 @@ export const useVoterStore = defineStore('voter', () => {
     // console.log(voteOptions.value);
   }
   
-  const handleSubmit = () => {
+  const createVoteOption = () => {
     if (voteOption.value.length > 0) {
       const newVoteOptionObj = voteOptions.value.find(vote => vote.title === voteOption.value);
 
@@ -80,5 +78,5 @@ export const useVoterStore = defineStore('voter', () => {
     }
   };
 
-  return { handleVote, voteOptions, oneTime, totalVotes, voteOption, error, isVoteFormOpen, toggleOptionClickability, handleSubmit, toggleVoteForm, removeVoteOption, $reset }
+  return { handleVote, voteOptions, oneTime, totalVotes, voteOption, error, isVoteFormOpen, toggleOptionClickability, createVoteOption, toggleVoteForm, removeVoteOption, $reset }
 })

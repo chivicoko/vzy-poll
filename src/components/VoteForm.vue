@@ -4,12 +4,12 @@
 
   const voteStore = useVoterStore();
   const {voteOption, error, } = storeToRefs(voteStore);
-  const { handleSubmit, toggleVoteForm } = voteStore;
+  const { createVoteOption, toggleVoteForm } = voteStore;
 
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit" class="flex flex-col items-center gap-3 w-80 md:w-96 mx-auto bg-neutral-100 p-4 rounded-2xl">
+  <form @submit.prevent="createVoteOption" class="flex flex-col items-center gap-3 w-80 md:w-96 mx-auto bg-neutral-100 p-4 rounded-2xl">
     <div class="w-full pb-4 flex items-center justify-end">
         <button type="button" @click="toggleVoteForm" class="cursor-pointer size-8 p-2 flex items-center justify-center rounded-full hover:bg-neutral-200 hover:text-red-700 text-2xl transition-all duration-300 ease-in-out">
             &times;
