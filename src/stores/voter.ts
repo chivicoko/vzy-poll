@@ -12,6 +12,7 @@ export const useVoterStore = defineStore('voter', () => {
   const voteOption = ref('');
   const error = ref('');
   const isVoteFormOpen = ref(false);
+  const oneTime = ref(false);
 
   const totalVotes = computed(() => voteOptions.value.reduce((total, option) => total + option.count, 0));
 
@@ -19,8 +20,13 @@ export const useVoterStore = defineStore('voter', () => {
     const voteOption = voteOptions.value.find(voteItem => voteItem.id === id);
     
     if (voteOption) {
-      voteOption.count++;
+      if (oneTime.value && voteOption.count === 1) {
+        // console.log(voteOption.count);
+        // console.log(oneTime.value);
+        return;
+      }
       
+      voteOption.count++;
       voteOptions.value.forEach(option => {
         option.percentageValue = parseFloat(((option.count / totalVotes.value) * 100).toFixed(2));
       });
@@ -65,5 +71,14 @@ export const useVoterStore = defineStore('voter', () => {
     ]
   }
 
-  return { handleVote, voteOptions, totalVotes, voteOption, error, isVoteFormOpen, handleSubmit, toggleVoteForm, removeVoteOption, $reset }
+  const toggleOptionClickability = () => {
+    if (!oneTime.value) {
+      $reset();
+      oneTime.value = !oneTime.value
+    } else {
+      oneTime.value = !oneTime.value
+    }
+  };
+
+  return { handleVote, voteOptions, oneTime, totalVotes, voteOption, error, isVoteFormOpen, toggleOptionClickability, handleSubmit, toggleVoteForm, removeVoteOption, $reset }
 })
