@@ -11,9 +11,10 @@ export const useVoterStore = defineStore('voter', () => {
   
   const voteOption = ref('');
   const error = ref('');
-  const isVoteFormOpen = ref(false);  
+  const isVoteFormOpen = ref(false);
+
   const totalVotes = computed(() => voteOptions.value.reduce((total, option) => total + option.count, 0));
-  
+
   function handleVote(id: number) {
     const voteOption = voteOptions.value.find(voteItem => voteItem.id === id);
     
