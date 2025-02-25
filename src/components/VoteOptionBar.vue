@@ -6,6 +6,7 @@
 
   const { voteOptions } = storeToRefs(voteStore);
   const { handleVote, removeVoteOption } = voteStore;
+  
 </script>
 
 <template>
