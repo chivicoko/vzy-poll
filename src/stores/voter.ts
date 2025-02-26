@@ -67,6 +67,8 @@ export const useVoterStore = defineStore('voter', () => {
       {id: 3, title: 'Option 3', count: 0, percentageValue: 0},
       {id: 4, title: 'Option 4', count: 0, percentageValue: 0},
     ]
+    
+    oneTime.value = false;
   }
 
   const toggleOptionClickability = () => {
